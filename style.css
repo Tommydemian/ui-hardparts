@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+
+}
+
+.container {
+    margin-top: 5em;
+}
+
+.form-input {
+    padding-block: .5em;
+}
+
+.submit-button {
+    padding-inline: 1em;
+    padding-block: .5em;
+}
+
+/* utility classes */
+
+.marginY-400 {
+    margin-block: .5em;
+}
+
+.block {
+    display: block;
+}
