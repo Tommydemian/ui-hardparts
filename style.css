@@ -16,11 +16,18 @@ body {
 
 .form-input {
     padding-block: .5em;
+    width: 100%;
+    border-radius: .3em;
 }
 
 .submit-button {
     padding-inline: 1em;
     padding-block: .5em;
+    background-color: steelblue;
+    color: #fff;
+    border: none;
+    border-radius: .3em;
+    width: 100%;
 }
 
 /* utility classes */
