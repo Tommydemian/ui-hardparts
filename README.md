@@ -87,3 +87,25 @@ problem is that yet, your data is stored in c++ but you cant run c++ code so bas
 - WebIDL: brige between JS runtime and web features/web APIS (including the DOM). 
 WebIDL stands for Interface. Description. Language
 Standarized format on how you gonna access other web features from the browser.
+
+```javascript
+let post = '';
+
+const jsInput = document.querySelector('input');
+
+const jsDiv = document.querySelector('.down-div');
+jsDiv.textContent = post;
+console.log(jsDiv); // misrepresentative!
+
+const handleInput = () => {
+    // post takes string input value => **post works as a temp variable here**
+    post = jsInput.value;
+    // div takes string value from post
+    jsDiv.textContent = post;
+};
+// .oninput => setter method => set handler => for handling users input
+jsInput.oninput = handleInput;
+```
+
+jsDiv and jsInput are **accesor objects**
+ in first case they are naturally objects, and they are not the DOM node value itself, they are objects pointing to the node value, which gives us access to the node element. They point to a space in memory, therefore the identifier value is populated with the data in that space in memory. **In colloquial terms, people/we say jsDiv is a reference to the DOM element** 
