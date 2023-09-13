@@ -11,4 +11,5 @@ const sortNumbers = (arr: number[]) => {
     }
 };
 
-sortNumbers(numbers);
+console.log(sortNumbers(numbers));
+

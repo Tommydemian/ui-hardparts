@@ -109,3 +109,27 @@ jsInput.oninput = handleInput;
 
 jsDiv and jsInput are **accesor objects**
  in first case they are naturally objects, and they are not the DOM node value itself, they are objects pointing to the node value, which gives us access to the node element. They point to a space in memory, therefore the identifier value is populated with the data in that space in memory. **In colloquial terms, people/we say jsDiv is a reference to the DOM element** 
+
+## User interaction and DOM updates
+DOM API.Event API => **if (user interacts) trigger the handler function**, to run in JS callback queue
+
+**IMPORTANT**:
+1. every single change of data is going to require this back & forth between JavaScript and the DOM =>*C++ Object* 
+2. There's no permanent bond between data here (JavaScript) and data here (DOM =>*C++ Object*)
+3. Every change requires a *.getter* or a *.setter*
+
+-------- Goal2 resolved => let users change what they see
+# Data binding in the UI
+## One way data binding
+As we continue to expand and refine our UI, thousands of user interactions with the UI are possible. So how can we maintain control over the flow? 
+- Why would we?
+Well, we need to provide the better UX possible, and that's only possible if we have control over what's happening. We need predicatabiliy. nuclear point of our approach will be: `**In order for the UI to change, underlying data needs to change**`
+                            (i) if no data changes, no UI change.
+                            (ii) if UI changes, data changes. 
+
+Every UI (element) change relays on underlying {data change} => data-binding , 
+
+**Note** If what we see depends strictly on data state, you can imagine we gon relay heavy on ternarys.
+  `if (data looks A) display A / if (data looks B) display B / if (data looks C) display C / etc..`
+
+## Separating Data & View updates
