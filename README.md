@@ -133,3 +133,80 @@ Every UI (element) change relays on underlying {data change} => data-binding ,
   `if (data looks A) display A / if (data looks B) display B / if (data looks C) display C / etc..`
 
 ## Separating Data & View updates
+
+This golden rule, which is indeed a resctriction used to predict render, data.
+ Can be thought as a design pattern
+ 
+## Understanding the dataToView function
+
+```javascript
+let post = undefined; // Data
+
+const jsInput = document.querySelector('input');
+
+const jsDiv = document.querySelector('.down-div');
+jsDiv.textContent = post;
+console.log(jsDiv); // misrepresentative!
+
+const dataToView = () => { // affect view!
+    jsDiv.textContent = post == undefined ? "What's up?" : post;
+};
+
+const handleClick = () => {
+    post = ''; // Update data
+    dataToView(); // Convert data to view
+};
+
+const handleInput = () => {
+    post = jsInput.value; // Update Data
+    dataToView(); // Convert data to view
+};
+
+//* .oninput => setter method => set's a handler => to handle user input interaction
+jsInput.oninput = handleInput;
+jsInput.onclick = handleClick;
+
+dataToView();
+```
+Everything being display runs from DATA & *conditionals* over that data to determine what's going to be rendered
+
+
+>Don't get it twisted by the daily usage of the mental model. This is a super efficient restrictive and competent design pattern to render pixels and have underlaying data which represent those pixels state.
+
+
+## Virtual DOM
+- **Most misunderstood concept in UI development**.
+- Enables us to have a more visual (or declarative) experience of coding UIs with JavaScript.
+- Requires significant optimizations (*diffing*, *reconciliation*) to be performative.  
+
+Let's see this code:
+
+```javascript
+// vars
+let post = ''; // Data
+
+const jsInput = document.querySelector('input');
+const jsDiv = document.querySelector('.down-div');
+
+const dataToView = () => { // Affect view
+    jsDiv.textContent = post; 
+    jsInput.value = post; 
+};
+
+const handleInput = () => {
+    post = jsInput.value;
+    if (post == 'Will') jsDiv.remove(); // View
+
+};
+
+jsInput.oninput = handleInput;
+
+setInterval(dataToView, 15);
+```
+
+There's was a time in UI development where evaluating empty val on data as a condition to show or not content on screen not heard of, but with this shift of paradigm in wich everything **you see o not** is the consecuence of the state of underlying data. 
+- A div not showing up is still data / presentational causing view or in this case is `no data causing no view, but still dependent on underlying data`
+
+In this way we reach what's called PRESENTATIONAL components => their only job is to render data
+
+UI component: Function that associates, describes, captures in full the relationship between underlying data in JavaScript and what the users see and how the user can act on that data. `description in whole of the content, what the users sees, how it depends on underlying data and how the user is able to act on wht they see and change data, thus change content`

@@ -2,7 +2,7 @@ let post = '';
 
 const jsInput = document.querySelector('input');
 
-const jsDiv = document.querySelector('.down-div');
+const jsDiv = document.querySelector('.bottom-div');
 jsDiv.textContent = post;
 console.log(jsDiv); // misrepresentative!
 

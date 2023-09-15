@@ -39,3 +39,7 @@ body {
 .block {
     display: block;
 }
+
+.bottom-div {
+  background-color: rgb(214, 160, 160);
+}
