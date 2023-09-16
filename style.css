@@ -43,3 +43,11 @@ body {
 .bottom-div {
   background-color: rgb(214, 160, 160);
 }
+
+div {
+    background-color: rgb(255, 203, 203);
+}
+
+input:focus {
+    background-color: rgb(165, 127, 201);
+}

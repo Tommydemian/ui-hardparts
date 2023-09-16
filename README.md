@@ -210,3 +210,26 @@ There's was a time in UI development where evaluating empty val on data as a con
 In this way we reach what's called PRESENTATIONAL components => their only job is to render data
 
 UI component: Function that associates, describes, captures in full the relationship between underlying data in JavaScript and what the users see and how the user can act on that data. `description in whole of the content, what the users sees, how it depends on underlying data and how the user is able to act on wht they see and change data, thus change content`
+
+
+### String interpolation gives as "visual" code:
+```javascript
+let name = 'Jo';
+
+// Imperative way:
+let textToDisplay = 'Hello, ';
+textToDisplay.concat(name);
+textToDisplay.concat('!');
+// Hello, Jo!
+
+// Alternative with template literals / Declarative way:
+textToDisplay = `Hello, ${name}!`;
+// Hello, Jo!
+```
+
+As we can see in the example above, we have a imperative way, step by step to tell the machine what to do, but.. let's be honest, I'ts in any way possible that looking like the final output? Well, the honest answer is NO. And that's why *string interpolation* comes to help us in a declarative paradigm. We can almost see the end result. **That's why we make continuous remark on this aspect of reaching a semi-visual representation of the actual DOM**
+`Are we reaching the virtual DOM concept?` 
+
+> The closer our code can be to 'visual' **(mirroring what the visual/graphic output will look)** the easier for us as developers.
+Could we do something similar to this with our main code creating visual elements?
+ 

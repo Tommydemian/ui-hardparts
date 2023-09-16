@@ -1,6 +1,4 @@
 'use strict';
-exports.__esModule = true;
-exports.dataToView = void 0;
 // Data
 var post = '';
 var jsInput;
@@ -15,7 +13,6 @@ var dataToView = function () {
     document.body.replaceChildren(jsInput, jsDiv);
 };
 
-exports.dataToView = dataToView;
 var handleInput = function () {
     post = jsInput.value;
 };
@@ -26,3 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 dataToView();
+
+// setInterval(dataToView, 15);
+
+    
+
